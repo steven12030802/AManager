@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ec010978-e3e5-406f-985f-36f4e9b57dd4" name="麒麟990笔记本">
+        <fileTransfer rootFolder="/home/mrblack" accessType="SFTP" host="192.168.1.118" port="22" sshConfigId="88e7ec79-40fa-4342-bd6c-74c200cb6ea3" sshConfig="麒麟990笔记本">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

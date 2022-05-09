@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app01.views import depart, user, pretty, admin, account, task, order, chart
+from app01.views import depart, user, pretty, admin, account, homepage, task, order, chart
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -52,22 +52,25 @@ urlpatterns = [
     path('logout/', account.logout),
     path('image/code/', account.image_code),
 
-    # 任务管理
-    path('task/list/', task.task_list),
-    path('task/ajax/', task.task_ajax),  # 学习Ajax
-    path('task/add/', task.task_add),
+    # 首页
+    path('index/', homepage.index),
 
-    # 订单管理
-    path('order/list/', order.order_list),
-    path('order/add/', order.order_add),
-    path('order/delete/', order.order_delete),
-    path('order/detail/', order.order_detail),
-    path('order/edit/', order.order_edit),
-
-    # 数据统计
-    path('chart/list/', chart.chart_list),
-    path('chart/bar/', chart.chart_bar),
-    path('chart/pie/', chart.chart_pie),
-    path('chart/line/', chart.chart_line),
-    path('chart/highcharts/', chart.highcharts),
+    # # 任务管理
+    # path('task/list/', task.task_list),
+    # path('task/ajax/', task.task_ajax),  # 学习Ajax
+    # path('task/add/', task.task_add),
+    #
+    # # 订单管理
+    # path('order/list/', order.order_list),
+    # path('order/add/', order.order_add),
+    # path('order/delete/', order.order_delete),
+    # path('order/detail/', order.order_detail),
+    # path('order/edit/', order.order_edit),
+    #
+    # # 数据统计
+    # path('chart/list/', chart.chart_list),
+    # path('chart/bar/', chart.chart_bar),
+    # path('chart/pie/', chart.chart_pie),
+    # path('chart/line/', chart.chart_line),
+    # path('chart/highcharts/', chart.highcharts),
 ]

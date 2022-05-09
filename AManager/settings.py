@@ -24,7 +24,8 @@ SECRET_KEY = 'django-insecure-hkrj5qe6)4-oe)g&+s-_)90r8$$fk_*a1w33=2wikt4!^4_h6c
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.102', 'localhost', 'mrblack.vaiwan.com'
+                                                            '']
 
 # Application definition
 
@@ -83,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'amanager',  # 数据库名字
-        'USER': 'root',
-        'PASSWORD': 'heheda.0',
-        'HOST': '127.0.0.1',  # 那台机器安装了MySQL
+        'USER': 'amanager',
+        'PASSWORD': 'nSKj2z6LcDDG6BNx',
+        'HOST': 'localhost',  # 那台机器安装了MySQL
         'PORT': 3306,
     }
 }

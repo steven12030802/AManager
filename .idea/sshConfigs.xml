@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" connectionConfig="{&quot;serverAliveInterval&quot;:300}" host="192.168.1.118" id="88e7ec79-40fa-4342-bd6c-74c200cb6ea3" port="22" customName="麒麟990笔记本" nameFormat="CUSTOM" username="mrblack" useOpenSSHConfig="true">
+        <option name="customName" value="麒麟990笔记本" />
+      </sshConfig>
+    </configs>
+  </component>
+</project>
