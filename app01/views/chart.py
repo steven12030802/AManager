@@ -84,4 +84,4 @@ def chart_line(request):
 def highcharts(request):
     """ highcharts示例 """
 
-    return render(request,'highcharts.html')
+    return render(request, 'highcharts.html')

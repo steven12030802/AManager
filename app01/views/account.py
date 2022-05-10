@@ -6,6 +6,7 @@ from app01.utils.code import check_code
 from app01 import models
 from app01.utils.bootstrap import BootStrapForm
 from app01.utils.encrypt import md5
+from app01.utils.sm3 import sm3hash
 
 
 class LoginForm(BootStrapForm):
@@ -28,7 +29,7 @@ class LoginForm(BootStrapForm):
 
     def clean_password(self):
         pwd = self.cleaned_data.get("password")
-        return md5(pwd)
+        return sm3hash(pwd)
 
 
 def login(request):
@@ -39,10 +40,6 @@ def login(request):
 
     form = LoginForm(data=request.POST)
     if form.is_valid():
-        # 验证成功，获取到的用户名和密码
-        # {'username': 'wupeiqi', 'password': '123',"code":123}
-        # {'username': 'wupeiqi', 'password': '5e5c3bad7eb35cba3638e145c830c35f',"code":xxx}
-
         # 验证码的校验
         user_input_code = form.cleaned_data.pop('code')
         code = request.session.get('image_code', "")

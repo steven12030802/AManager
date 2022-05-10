@@ -7,6 +7,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from app01.utils.bootstrap import BootStrapModelForm
 from app01.utils.encrypt import md5
+from app01.utils.sm3 import sm3hash
 
 
 class AdminModelForm(BootStrapModelForm):
@@ -24,11 +25,11 @@ class AdminModelForm(BootStrapModelForm):
 
     def clean_password(self):
         pwd = self.cleaned_data.get("password")
-        return md5(pwd)
+        return sm3hash(pwd)
 
     def clean_confirm_password(self):
         pwd = self.cleaned_data.get("password")
-        confirm = md5(self.cleaned_data.get("confirm_password"))
+        confirm = sm3hash(self.cleaned_data.get("confirm_password"))
         if confirm != pwd:
             raise ValidationError("密码不一致")
         # 返回什么，此字段以后保存到数据库就是什么。
@@ -56,7 +57,7 @@ class AdminResetModelForm(BootStrapModelForm):
 
     def clean_password(self):
         pwd = self.cleaned_data.get("password")
-        md5_pwd = md5(pwd)
+        md5_pwd = sm3hash(pwd)
 
         # 去数据库校验当前密码和新输入的密码是否一致
         exists = models.Admin.objects.filter(id=self.instance.pk, password=md5_pwd).exists()
@@ -67,7 +68,7 @@ class AdminResetModelForm(BootStrapModelForm):
 
     def clean_confirm_password(self):
         pwd = self.cleaned_data.get("password")
-        confirm = md5(self.cleaned_data.get("confirm_password"))
+        confirm = sm3hash(self.cleaned_data.get("confirm_password"))
         if confirm != pwd:
             raise ValidationError("密码不一致")
         # 返回什么，此字段以后保存到数据库就是什么。

@@ -20,6 +20,9 @@
     <!--     Fonts and icons     -->
     <link rel="stylesheet" href="{% static "assets/css/font/font-awesome.min.css" %}"/>
     <link rel="stylesheet" href={% static "assets/css/pe-icon-7-stroke.css" %}/>
+    <link rel="stylesheet" href={% static "assets/css/layout.css" %}/>
+    <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "assets/js/jquery-1.10.2.js" %}"></script>
 </head>
 
 <body>
@@ -34,8 +37,8 @@
             </div>
 
             <ul class="nav">
-                <li class="active">
-                    <a href="#">
+                <li>
+                    <a href="/index">
                         <i class="glyphicon glyphicon-home" aria-hidden="true"></i>
                         <p>首页</p>
                     </a>
@@ -104,7 +107,48 @@
 
     </div>
 </div>
-
-
+<div class="wrap svg">
+    <p>Loading...</p>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <div class="rect"></div>
+    <div class="rect"></div>
+</div>
 </body>
+<script>
+    var rects = $(".wrap").children();
+
+    function loop(obj, delay) {
+        obj.delay(delay).animate({
+            height: "25px",
+            bottom: "-10px",
+        }, 500).animate({
+            height: "5px",
+            bottom: "0px",
+        }, 500, function () {
+            loop($(this), 1200);
+        });
+    }
+
+    function runRects() {
+        rects.each(function (i, item) {
+            item = $(item);
+            item.css("left", (i * 11) + "px");
+            loop(item, i * 300);
+        });
+    }
+
+    $(runRects());
+</script>
+<script>
+    $(window).on('load', function () {
+        $('.svg').animate({
+            opacity: 0
+        }, 900);
+        setTimeout(function () {
+            $('.svg').remove();
+        }, 900);
+    })
+</script>
 </html>

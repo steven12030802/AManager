@@ -1,0 +1,20 @@
+.wrap {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin: -100px -50px;
+            height: 100px;
+            width: 100px;
+            background-color: white;
+        }
+
+.rect {
+    position: absolute;
+    bottom: 0px;
+    width: 9px;
+    height: 5px;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    background-color: #9b59b6;
+}
